@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .todo-container {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        .todo-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            cursor: pointer;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container todo-container">
+    <h2 class="text-center mb-4">Todo List</h2>
+
+    <ul class="todo-list" id="todoList">
+        <!-- Todo items will be dynamically added here -->
+    </ul>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="taskInput" placeholder="Add a new task" aria-label="Add a new task" aria-describedby="addBtn">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="addBtn" onclick="addTask()">Add Task</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function addTask() {
+        var taskInput = document.getElementById('taskInput');
+        var taskText = taskInput.value.trim();
+
+        if (taskText === '') {
+            alert('Please enter a valid task.');
+            return;
+        }
+
+        var todoList = document.getElementById('todoList');
+
+        var listItem = document.createElement('li');
+        listItem.className = 'todo-item';
+
+        var taskTextElement = document.createElement('span');
+        taskTextElement.textContent = taskText;
+
+        var deleteButton = document.createElement('span');
+        deleteButton.className = 'delete-btn';
+        deleteButton.innerHTML = '&times;';
+        deleteButton.onclick = function () {
+            todoList.removeChild(listItem);
+        };
+
+        listItem.appendChild(taskTextElement);
+        listItem.appendChild(deleteButton);
+
+        todoList.appendChild(listItem);
+
+        // Clear the input
+        taskInput.value = '';
+    }
+</script>
+
+</body>
+</html>

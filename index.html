@@ -3,18 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Palacios - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .about-me,
+        .skills,
+        .projects,
+        .contact {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Luis Palacios</h1>
-        <p>Web Developer</p>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Luis Palacios</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    <section id="about">
-        <h2>About Me</h2>
+<div class="header">
+    <h1>Luis Palacios</h1>
+    <p>Web Developer</p>
+</div>
+
+<section id="about" class="about-me">
+    <div class="container">
+        <h2 class="text-center mb-4">About Me</h2>
         <p>
             I am a passionate and detail-oriented web developer with expertise in creating dynamic and 
             visually appealing websites. Proficient in front-end technologies such as HTML5, CSS3, and 
@@ -32,43 +85,92 @@
             staying up-to-date with the latest industry trends and best practices. Whether it's a personal 
             project or a collaborative endeavor, I approach each task with enthusiasm and a problem-solving mindset.
             
-            Let's work together to bring your web development ideas to life!</p>
-    </section>
+            Let's work together to bring your web development ideas to life!
+        </p>
+    </div>
+</section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-            <!-- Add more skills as needed -->
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div id="project">
-            <h3>Task Manager</h3>
-            <p>Description of project 1. Mention the technologies used, your role, and any challenges overcome.</p>
-            <a href="#"></a>
+<section id="skills" class="skills">
+    <div class="container">
+        <h2 class="text-center mb-4">Skills</h2>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4>Frontend</h4>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <!-- Add more skills as needed -->
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h4>Backend</h4>
+                <ul>
+                    <li>Java</li>
+                    <li>Node.js</li>
+                    <!-- Add more skills as needed -->
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h4>Other</h4>
+                <ul>
+                    <li>Bootstrap</li>
+                    <li>jQuery</li>
+                    <!-- Add more skills as needed -->
+                </ul>
+            </div>
         </div>
-        <div id="project">
-            <h3>Todo lis app</h3>
-            <p>Description of project 2. Highlight specific features and your contribution to the project.</p>
-            <a href="#"></a>
+    </div>
+</section>
 
-        </div>
-        
-    </section>
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="text-center mb-4">Task Manager</h2>
+        <a href="task manager/task.html">Task</a>
+        <!-- Add your project details and images here -->
+    </div>
+</section>
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="text-center mb-4">Todo App</h2>
+        <a href="todo list/todo.html">Todo</a>
+        <!-- Add your project details and images here -->
+    </div>
+</section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:lepg723@gmail.com">lepg723@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/luis-palacios-guerrero-3428702a1/">Luis Palacios</a></p>
-        <!-- Add more contact information as needed -->
-    </section>
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="text-center mb-4">Contact Me</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
 
-    <script></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
+
+
+
+
+   
+
+   
+
+    

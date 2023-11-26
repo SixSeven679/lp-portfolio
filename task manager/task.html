@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Task Manager</title>
+    <style>
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Task Manager</h1>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskName">Task Name</label>
+                    <input type="text" class="form-control" id="taskName" required>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Task Description</label>
+                    <textarea class="form-control" id="taskDescription" rows="3" required></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="addTask()">Add Task</button>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <ul class="list-group" id="taskList">
+                <!-- Task items will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function addTask() {
+        // Get values from the form
+        var taskName = document.getElementById('taskName').value;
+        var taskDescription = document.getElementById('taskDescription').value;
+
+        // Validate input
+        if (taskName.trim() === '' || taskDescription.trim() === '') {
+            alert('Please enter both task name and description.');
+            return;
+        }
+
+        // Create a new task item
+        var taskItem = document.createElement('li');
+        taskItem.className = 'list-group-item';
+        taskItem.innerHTML = '<strong>' + taskName + '</strong>: ' + taskDescription;
+
+        // Append the task item to the task list
+        document.getElementById('taskList').appendChild(taskItem);
+
+        // Clear the form
+        document.getElementById('taskForm').reset();
+    }
+</script>
+
+</body>
+</html>
